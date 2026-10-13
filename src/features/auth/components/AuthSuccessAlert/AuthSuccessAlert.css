@@ -1,0 +1,52 @@
+.auth-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(27, 25, 20, .58);
+  backdrop-filter: blur(9px);
+  animation: authOverlayEnter .22s ease-out;
+}
+.auth-sweet-alert, .auth-forgot-dialog {
+  width: min(440px, 100%);
+  max-height: min(88svh, 650px);
+  overflow-y: auto;
+  border: 1px solid rgba(130, 113, 72, .14);
+  border-radius: 26px;
+  background: #fffdf9;
+  color: #433a2b;
+  box-shadow: 0 34px 90px rgba(18, 17, 13, .34);
+  animation: authDialogEnter .32s cubic-bezier(.22, 1, .36, 1);
+}
+.auth-sweet-alert { padding: 36px 32px 30px; text-align: center; }
+.auth-sweet-alert__icon {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 17px;
+  border: 3px solid #a5af79;
+  border-radius: 50%;
+  color: #657342;
+  background: #f0f3e5;
+  animation: authSuccessPop .48s cubic-bezier(.22,1,.36,1);
+}
+.auth-sweet-alert h2 { margin: 0 0 10px; font-size: 25px; }
+.auth-sweet-alert p { margin: 0 auto 25px; max-width: 350px; color: #716755; font-size: 13px; line-height: 1.85; }
+.auth-sweet-alert .auth-primary-btn { max-width: 210px; margin-inline: auto; }
+.auth-forgot-dialog { position: relative; padding: 32px; }
+.auth-forgot-dialog__close { position: absolute; inset-block-start: 17px; inset-inline-end: 17px; display: grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 10px; background: #f4ede2; color: #55482f; cursor: pointer; }
+.auth-forgot-dialog__icon { width: 49px; height: 49px; display: grid; place-items: center; margin-bottom: 15px; border-radius: 14px; background: #f3e3d1; color: #827148; }
+.auth-forgot-dialog h2 { margin: 0 0 8px; font-size: 24px; }
+.auth-forgot-dialog p { margin: 0 0 22px; color: #716755; font-size: 13px; line-height: 1.8; }
+.auth-forgot-dialog .auth-primary-btn { margin-top: 22px; }
+.auth-forgot-dialog input { background: #f9f6ef; }
+.auth-forgot-dialog button:focus-visible { outline: 2px solid #a5af79; outline-offset: 2px; }
+.auth-forgot-dialog input:focus-visible { outline: 0; border-color: rgba(130,113,72,.55); box-shadow: 0 0 0 3px rgba(165,175,121,.16); }
+@keyframes authOverlayEnter { from { opacity: 0; } to { opacity: 1; } }
+@keyframes authDialogEnter { from { opacity: 0; transform: translateY(18px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes authSuccessPop { from { transform: scale(.65); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@media (max-width: 520px) { .auth-forgot-dialog { padding: 28px 20px; } .auth-sweet-alert { padding: 32px 22px 25px; } }
+@media (prefers-reduced-motion: reduce) { .auth-dialog-backdrop, .auth-sweet-alert, .auth-forgot-dialog, .auth-sweet-alert__icon { animation: none !important; } }

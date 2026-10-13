@@ -1,0 +1,20 @@
+{
+  "name": "solveit-platform",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test tests/kyc/*.test.js tests/expertProfile/*.test.js tests/expertAuth/*.test.js tests/adminAuthorization/*.test.js tests/userAuth/*.test.js tests/expertWorkspace/*.test.js tests/demo/*.test.js"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "7.18.3"
+  },
+  "devDependencies": {}
+}

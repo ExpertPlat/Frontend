@@ -1,0 +1,68 @@
+.lp-nav { position: fixed; inset-block-start: 0; inset-inline: 0; z-index: 100; padding-block: 14px; transition: padding .3s ease; }
+.lp-nav.is-scrolled { padding-block: 8px; }
+.lp-nav__inner { position: relative; display: flex; align-items: center; gap: 24px; min-height: 64px; padding: 8px 14px 8px 16px; padding-inline: 18px 12px; background: rgba(255, 252, 246, .74); border: 1px solid rgba(255, 255, 255, .8); border-radius: 22px; box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 10px 34px rgba(70, 56, 28, .07); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); transition: background .3s ease, box-shadow .3s ease; }
+.lp-nav.is-scrolled .lp-nav__inner { background: rgba(255, 252, 246, .94); box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 16px 44px rgba(70, 56, 28, .13); }
+.lp-nav__logo { --brand-h: 34px; }
+.lp-nav__links { display: flex; align-items: center; gap: 4px; margin-inline: auto; }
+.lp-nav__links a, .lp-nav__drawer-links a { position: relative; display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 12px; color: #5d543e; font-size: 14px; font-weight: 700; transition: color .2s ease, background .2s ease; }
+.lp-nav__links a:hover { color: #3d4521; background: rgba(95, 107, 50, .08); }
+.lp-nav__links a.is-active { color: #3d4521; background: rgba(95, 107, 50, .12); }
+.lp-nav__links a.is-active::after { content: ''; position: absolute; inset-inline: 14px; inset-block-end: 5px; height: 2px; border-radius: 99px; background: #d9825f; }
+.lp-nav__actions { display: flex; align-items: center; gap: 10px; }
+.lp-nav__cta { display: flex; align-items: center; gap: 8px; }
+.lp-nav__session { display: grid; max-width: 150px; padding-inline: 6px; line-height: 1.3; }
+.lp-nav__session small { color: #8b7c67; font-size: 11px; }
+.lp-nav__session b { overflow: hidden; color: #4a402c; font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+.lp-nav__toggle { display: none; width: 44px; height: 44px; place-items: center; padding: 0; border: 0; border-radius: 13px; color: #4a402c; background: rgba(95, 107, 50, .1); cursor: pointer; }
+.lp-nav__toggle:focus-visible { outline: 2px solid #6f744a; outline-offset: 2px; }
+.lp-nav__progress { position: absolute; inset-inline: 22px; inset-block-end: 3px; height: 2px; transition: transform .1s linear, opacity .2s ease; border-radius: 99px; background: linear-gradient(90deg, #6b7a38, #d9825f); transform-origin: right center; pointer-events: none; }
+[dir='ltr'] .lp-nav__progress { transform-origin: left center; }
+
+.lp-nav__scrim, .lp-nav__drawer { display: none; }
+
+/* shared landing buttons (also used by the navbar/drawer) */
+.lp-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px; border: 1px solid transparent; border-radius: 13px; font-size: 14px; font-weight: 800; line-height: 1; white-space: nowrap; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease; }
+.lp-btn:hover { transform: translateY(-2px); }
+.lp-btn:focus-visible { outline: 3px solid rgba(217, 130, 95, .5); outline-offset: 2px; }
+.lp-btn--primary { color: #fffdf6; background: linear-gradient(160deg, #6b7a38, #4b5628); box-shadow: 0 10px 24px rgba(75, 86, 40, .26), inset 0 1px rgba(255, 255, 255, .18); }
+.lp-btn--primary:hover { background: linear-gradient(160deg, #75853f, #525e2d); box-shadow: 0 14px 30px rgba(75, 86, 40, .32), inset 0 1px rgba(255, 255, 255, .18); }
+.lp-btn--ghost { color: #4b5628; background: transparent; }
+.lp-btn--ghost:hover { background: rgba(95, 107, 50, .09); transform: none; }
+.lp-btn--soft { color: #4a402c; background: #fbe9d8; }
+.lp-btn--soft:hover { background: #f9ddc6; }
+.lp-btn--outline { color: #3d4521; background: rgba(255, 255, 255, .6); border-color: rgba(75, 86, 40, .28); }
+.lp-btn--outline:hover { background: #fff; border-color: rgba(75, 86, 40, .5); }
+.lp-btn--cream { color: #3d4521; background: #fff4e3; box-shadow: 0 12px 28px rgba(20, 18, 8, .22); }
+.lp-btn--cream:hover { background: #fff; }
+.lp-btn--lg { min-height: 54px; padding: 0 28px; border-radius: 15px; font-size: 15.5px; }
+[dir='ltr'] .ic-arrow { transform: scaleX(-1); }
+.lp-no-scroll { overflow: hidden; }
+
+@media (max-width: 1080px) {
+  .lp-nav__links a { padding-inline: 10px; font-size: 13px; }
+  .lp-nav__actions .lp-btn--ghost { display: none; }
+}
+@media (max-width: 920px) {
+  .lp-nav__links, .lp-nav__cta { display: none; }
+  .lp-nav__inner { justify-content: space-between; }
+  .lp-nav__actions { margin-inline-start: auto; }
+  .lp-nav__toggle { display: grid; }
+  .lp-nav__scrim { position: fixed; inset: 0; z-index: -1; display: block; background: rgba(36, 32, 18, .32); opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+  .lp-nav.is-open .lp-nav__scrim { opacity: 1; pointer-events: auto; }
+  .lp-nav__drawer { position: absolute; inset-inline: 20px; inset-block-start: calc(100% - 4px); display: grid; gap: 14px; padding: 16px; margin-top: 8px; background: #fffcf6; border: 1px solid rgba(103, 86, 56, .12); border-radius: 22px; box-shadow: 0 24px 60px rgba(50, 40, 18, .22); animation: lpDrawer .24s cubic-bezier(.2, .8, .2, 1); }
+  .lp-nav__drawer[hidden] { display: none; }
+  .lp-nav__drawer-links { display: grid; gap: 2px; }
+  .lp-nav__drawer-links a { min-height: 48px; font-size: 15px; }
+  .lp-nav__drawer-links a.is-active { color: #3d4521; background: rgba(95, 107, 50, .12); }
+  .lp-nav__drawer-cta { display: grid; gap: 8px; padding-top: 12px; border-top: 1px solid rgba(103, 86, 56, .1); }
+  .lp-nav__drawer-cta .lp-btn { width: 100%; min-height: 50px; }
+  .lp-nav__drawer-cta .lp-btn--ghost { display: inline-flex; border-color: rgba(75, 86, 40, .22); }
+  .lp-nav__drawer-cta .lp-nav__session { max-width: none; }
+}
+@media (max-width: 520px) {
+  .lp-nav { padding-block: 8px; }
+  .lp-nav__inner { min-height: 58px; gap: 10px; padding-inline: 14px 8px; border-radius: 18px; }
+  .lp-nav__drawer { inset-inline: 12px; }
+}
+@keyframes lpDrawer { from { opacity: 0; transform: translateY(-8px) scale(.98); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .lp-nav, .lp-nav__drawer, .lp-btn { transition: none; animation: none; } }

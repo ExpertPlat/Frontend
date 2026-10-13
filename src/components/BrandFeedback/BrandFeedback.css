@@ -1,0 +1,96 @@
+.brand-notice-viewport {
+  position: fixed;
+  z-index: 1000;
+  inset-inline-start: 22px;
+  bottom: 22px;
+  width: min(430px, calc(100% - 44px));
+  display: grid;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.brand-notice {
+  min-height: 68px;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 11px;
+  padding: 12px;
+  overflow: hidden;
+  border: 1px solid var(--brand-line-strong);
+  border-inline-start: 4px solid var(--brand-earth);
+  border-radius: 17px;
+  color: var(--brand-ink);
+  background: color-mix(in srgb, var(--brand-cream) 94%, white);
+  box-shadow: var(--brand-shadow-high);
+  animation: brandNoticeIn .28s cubic-bezier(.2, .8, .2, 1) both;
+  pointer-events: auto;
+}
+
+.brand-notice.is-success { border-inline-start-color: var(--brand-success); }
+.brand-notice.is-warning { border-inline-start-color: var(--brand-warning); }
+.brand-notice.is-error { border-inline-start-color: var(--brand-danger); }
+.brand-notice__icon { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; color: var(--brand-earth-deep); background: var(--brand-earth-soft); }
+.brand-notice.is-success .brand-notice__icon { color: var(--brand-success-deep); background: var(--brand-success-soft); }
+.brand-notice.is-warning .brand-notice__icon { color: var(--brand-warning-deep); background: var(--brand-warning-soft); }
+.brand-notice.is-error .brand-notice__icon { color: var(--brand-danger-deep); background: var(--brand-danger-soft); }
+.brand-notice__copy { min-width: 0; }
+.brand-notice__copy b { display: block; margin-bottom: 2px; font-size: 13px; }
+.brand-notice__copy p { margin: 0; color: var(--brand-muted); font-size: 12.5px; line-height: 1.65; }
+.brand-notice > button { width: 34px; height: 34px; display: grid; place-items: center; border: 0; border-radius: 10px; color: var(--brand-earth); background: var(--brand-earth-soft); cursor: pointer; }
+.brand-notice > button:hover { color: var(--brand-earth-deep); background: var(--brand-peach-soft); }
+
+.brand-confirm-backdrop {
+  position: fixed;
+  z-index: 1100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: rgba(53, 45, 31, .48);
+  backdrop-filter: blur(7px);
+  animation: brandBackdropIn .18s ease both;
+}
+
+.brand-confirm {
+  width: min(480px, 100%);
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 15px;
+  padding: 22px;
+  border: 1px solid var(--brand-line-strong);
+  border-radius: 23px;
+  color: var(--brand-ink);
+  background: linear-gradient(145deg, var(--brand-surface), var(--brand-cream));
+  box-shadow: 0 30px 90px rgba(58, 45, 25, .24);
+  animation: brandConfirmIn .24s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.brand-confirm__mark { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 16px; color: var(--brand-earth-deep); background: linear-gradient(145deg, var(--brand-peach-soft), var(--brand-olive-soft)); }
+.brand-confirm.is-danger .brand-confirm__mark { color: var(--brand-danger-deep); background: var(--brand-danger-soft); }
+.brand-confirm__copy small { color: var(--brand-earth); font-size: 10px; font-weight: 900; letter-spacing: .08em; }
+.brand-confirm__copy h2 { margin: 5px 0 7px; font-size: 21px; line-height: 1.45; }
+.brand-confirm__copy p { margin: 0; color: var(--brand-muted); font-size: 13px; line-height: 1.8; }
+.brand-confirm__actions { grid-column: 1 / -1; display: flex; justify-content: flex-end; gap: 9px; padding-top: 4px; }
+.brand-confirm__actions button { min-width: 105px; min-height: 44px; padding-inline: 16px; border-radius: 12px; font-size: 12.5px; font-weight: 800; cursor: pointer; transition: transform .18s ease, background .18s ease, border-color .18s ease; }
+.brand-confirm__actions button:hover { transform: translateY(-1px); }
+.brand-confirm__actions .is-cancel { border: 1px solid var(--brand-line-strong); color: var(--brand-earth-deep); background: var(--brand-surface); }
+.brand-confirm__actions .is-confirm { border: 1px solid var(--brand-earth); color: var(--brand-on-dark); background: var(--brand-earth); }
+.brand-confirm__actions .is-confirm:hover { border-color: var(--brand-earth-deep); background: var(--brand-earth-deep); }
+.brand-confirm.is-danger .brand-confirm__actions .is-confirm { border-color: var(--brand-danger); background: var(--brand-danger); }
+
+@keyframes brandNoticeIn { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes brandBackdropIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes brandConfirmIn { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 560px) {
+  .brand-notice-viewport { inset-inline: 13px; bottom: 13px; width: auto; }
+  .brand-confirm { grid-template-columns: 44px minmax(0, 1fr); padding: 17px; border-radius: 19px; }
+  .brand-confirm__mark { width: 44px; height: 44px; border-radius: 13px; }
+  .brand-confirm__actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .brand-confirm__actions button { min-width: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-notice, .brand-confirm-backdrop, .brand-confirm { animation: none; }
+}

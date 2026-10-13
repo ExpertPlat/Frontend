@@ -1,0 +1,23 @@
+.lp-footer { position: relative; overflow: hidden; padding-block: 12px 22px; color: #f6efde; background: radial-gradient(900px 380px at 0% 0%, rgba(111, 122, 56, .35), transparent 60%), linear-gradient(160deg, #2f3320, #232616); }
+.lp-footer > .container { position: relative; z-index: 1; }
+.lp-footer__grid { display: grid; grid-template-columns: 1.7fr repeat(3, 1fr); gap: 48px; padding-block: 52px 40px; }
+.lp-footer__logo { --brand-h: 44px; margin-bottom: 16px; }
+.lp-footer__brand p { max-width: 360px; margin: 0 0 12px; color: rgba(246, 239, 222, .78); font-size: 14px; line-height: 1.9; }
+.lp-footer__brand b { display: block; color: #f3c9ae; font-size: 14px; }
+.lp-footer__remote { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 8px 14px; color: #e9f0c8; font-size: 13px; font-weight: 700; background: rgba(165, 175, 121, .16); border: 1px solid rgba(165, 175, 121, .28); border-radius: 999px; }
+.lp-footer__links { display: grid; align-content: start; gap: 4px; }
+.lp-footer__links h4 { margin: 0 0 10px; color: #fff8ec; font-size: 15px; }
+.lp-footer__links a { width: fit-content; min-height: 32px; display: inline-flex; align-items: center; color: rgba(246, 239, 222, .74); font-size: 14px; transition: color .18s ease, transform .18s ease; }
+.lp-footer__links a:hover { color: #f3c9ae; transform: translateX(-2px); }
+[dir='ltr'] .lp-footer__links a:hover { transform: translateX(2px); }
+.lp-footer__links a:focus-visible { outline: 2px solid #f3c9ae; outline-offset: 3px; border-radius: 4px; }
+.lp-footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; padding-top: 18px; color: rgba(246, 239, 222, .6); font-size: 12.5px; border-top: 1px solid rgba(246, 239, 222, .12); }
+
+@media (max-width: 980px) {
+  .lp-footer__grid { grid-template-columns: 1fr 1fr 1fr; gap: 36px 28px; }
+  .lp-footer__brand { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .lp-footer__grid { grid-template-columns: 1fr 1fr; padding-block: 40px 28px; }
+  .lp-footer__links:last-child { grid-column: 1 / -1; }
+}

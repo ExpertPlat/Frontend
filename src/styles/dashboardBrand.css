@@ -1,0 +1,230 @@
+/* Shared visual contract for the admin and expert workspaces. */
+.admin-dashboard-page {
+  accent-color: var(--brand-earth);
+}
+
+.admin-dashboard-page :is(button, a, input, textarea, select):focus-visible {
+  outline: 3px solid var(--brand-focus);
+  outline-offset: 2px;
+}
+
+.admin-dashboard-page :is(input, textarea, select) {
+  caret-color: var(--brand-earth);
+}
+
+.admin-page-button.is-primary,
+.admin-primary-button,
+.expert-primary-button,
+.admin-settings-actions .is-primary,
+.admin-details-drawer__footer .is-primary,
+.admin-role-editor__footer .is-primary,
+.admin-role-create-actions .is-primary,
+.admin-inline-action.is-primary {
+  color: var(--brand-on-dark);
+  border-color: var(--brand-earth);
+  background: var(--brand-earth);
+  box-shadow: 0 9px 24px color-mix(in srgb, var(--brand-earth) 18%, transparent);
+}
+
+.admin-page-button.is-primary:hover,
+.admin-primary-button:hover,
+.expert-primary-button:hover,
+.admin-settings-actions .is-primary:hover,
+.admin-details-drawer__footer .is-primary:hover,
+.admin-role-editor__footer .is-primary:hover,
+.admin-role-create-actions .is-primary:hover,
+.admin-inline-action.is-primary:hover {
+  border-color: var(--brand-earth-deep);
+  background: var(--brand-earth-deep);
+}
+
+.admin-page-button:not(.is-primary),
+.expert-secondary-button {
+  color: var(--brand-earth-deep);
+  border-color: var(--brand-line-strong);
+  background: var(--admin-surface, var(--brand-surface));
+}
+
+.admin-page-button:not(.is-primary):hover,
+.expert-secondary-button:hover {
+  border-color: color-mix(in srgb, var(--brand-earth) 42%, transparent);
+  background: var(--brand-peach-soft);
+}
+
+.admin-kyc-page-decision-actions .is-approve,
+.admin-kyc-drawer__footer .is-approve,
+.admin-kyc-approval-scope__actions .is-approve {
+  color: var(--brand-on-dark);
+  border-color: var(--brand-success);
+  background: var(--brand-success);
+}
+
+.admin-kyc-page-decision-actions .is-reject,
+.admin-kyc-drawer__footer .is-reject,
+.admin-kyc-reject .is-danger {
+  color: var(--brand-danger-deep);
+  border-color: color-mix(in srgb, var(--brand-danger) 34%, transparent);
+  background: var(--brand-danger-soft);
+}
+
+.admin-kyc-reject .is-danger {
+  color: var(--brand-on-dark);
+  border-color: var(--brand-danger);
+  background: var(--brand-danger);
+}
+
+.admin-page-notice.is-error,
+.admin-kyc-decision-summary.is-rejected,
+.admin-field-error--block {
+  border-color: color-mix(in srgb, var(--brand-danger) 28%, transparent);
+  background: var(--brand-danger-soft);
+}
+
+.admin-page-notice.is-error > span,
+.admin-kyc-decision-summary.is-rejected > span,
+.admin-field-error,
+.admin-kyc-change-row__top button {
+  color: var(--brand-danger-deep);
+}
+
+.admin-kyc-decision-summary,
+.admin-kyc-approval-scope,
+.admin-role-list__item.is-active,
+.admin-permission-check.is-selected,
+.admin-kyc-document.is-checked {
+  border-color: color-mix(in srgb, var(--brand-success) 30%, transparent);
+  background: var(--brand-success-soft);
+}
+
+.admin-dashboard-page :is(input, textarea, select):not([type='checkbox']):not([type='radio']) {
+  border-color: var(--admin-line, var(--brand-line));
+}
+
+.admin-dashboard-page :is(input, textarea, select):not([type='checkbox']):not([type='radio']):focus {
+  border-color: var(--brand-earth);
+  box-shadow: 0 0 0 3px var(--brand-focus);
+}
+
+.admin-app-shell[data-theme='dark'] .brand-tag-input {
+  background: var(--admin-surface-soft);
+}
+
+.admin-app-shell[data-theme='dark'] .brand-tag {
+  color: var(--admin-ink);
+  background: color-mix(in srgb, var(--brand-olive) 18%, transparent);
+}
+
+/* KYC decisions follow the same brand hierarchy without losing semantic meaning. */
+.admin-kyc-page-decision-actions > div:last-child > button:not(.is-reject):not(.is-approve),
+.admin-kyc-reject .is-information {
+  color: var(--brand-earth-deep);
+  border-color: color-mix(in srgb, var(--brand-earth) 34%, transparent);
+  background: color-mix(in srgb, var(--brand-peach) 16%, var(--admin-surface, white));
+}
+
+.admin-kyc-page-decision-actions > div:last-child > button:not(.is-reject):not(.is-approve):hover,
+.admin-kyc-reject .is-information:hover {
+  border-color: var(--brand-earth);
+  background: color-mix(in srgb, var(--brand-peach) 25%, var(--admin-surface, white));
+}
+
+.admin-kyc-page-decision-actions .is-approve,
+.admin-kyc-approval-scope__actions .is-approve {
+  color: var(--brand-on-dark);
+  border-color: var(--brand-success-deep);
+  background: var(--brand-success-deep);
+}
+
+.admin-kyc-page-decision-actions .is-approve:hover,
+.admin-kyc-approval-scope__actions .is-approve:hover {
+  border-color: color-mix(in srgb, var(--brand-success-deep) 84%, #1f2517);
+  background: color-mix(in srgb, var(--brand-success-deep) 84%, #1f2517);
+}
+
+.admin-kyc-reject--page {
+  gap: 14px;
+  padding: 18px;
+  border-color: color-mix(in srgb, var(--brand-earth) 18%, transparent);
+  border-radius: 15px;
+  background: var(--admin-surface, var(--brand-surface));
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--brand-earth) 8%, transparent);
+}
+
+.admin-kyc-reject--page.is-information-request {
+  border-color: color-mix(in srgb, var(--brand-olive) 42%, transparent);
+  background: color-mix(in srgb, var(--brand-olive) 7%, var(--admin-surface, white));
+}
+
+.admin-kyc-decision-editor__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid var(--admin-line, var(--brand-line));
+}
+
+.admin-kyc-decision-editor__header > span {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 11px;
+  color: var(--brand-earth-deep);
+  background: var(--brand-peach-soft);
+}
+
+.is-information-request .admin-kyc-decision-editor__header > span {
+  color: var(--brand-success-deep);
+  background: var(--brand-olive-soft);
+}
+
+.admin-kyc-decision-editor__header b { color: var(--admin-ink, var(--brand-ink)); font-size: 13px; }
+.admin-kyc-decision-editor__header p { margin: 3px 0 0; color: var(--admin-muted, var(--brand-muted)); font-size: 10.5px; line-height: 1.65; }
+.admin-kyc-reject--page > label { gap: 7px; font-size: 11.5px; }
+.admin-kyc-reject--page > label textarea { min-height: 84px; resize: vertical; }
+.admin-kyc-reject--page .admin-kyc-change-builder { gap: 10px; padding: 12px; }
+.admin-kyc-reject--page .admin-kyc-change-row { gap: 8px; padding: 11px; }
+.admin-kyc-reject--page .admin-kyc-change-row textarea { min-height: 64px; resize: vertical; }
+.admin-kyc-decision-editor__actions { display: flex !important; align-items: center; justify-content: flex-end !important; gap: 8px; padding-top: 2px; }
+.admin-kyc-decision-editor__actions button { min-height: 40px; padding-inline: 14px; font-size: 11px; }
+
+.admin-app-shell[data-theme='dark'] .admin-kyc-reject--page,
+.admin-app-shell[data-theme='dark'] .admin-kyc-reject--page.is-information-request {
+  background: var(--admin-surface);
+  border-color: var(--admin-line);
+}
+
+@media (max-width: 640px) {
+  .admin-kyc-reject--page { margin: 12px !important; padding: 14px; }
+  .admin-kyc-decision-editor__actions { display: grid !important; grid-template-columns: 1fr 1fr; }
+  .admin-kyc-decision-editor__actions button { width: 100%; }
+}
+/* Shared branded fallback while a route-level bundle is loaded. */
+.route-loading {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 32px;
+  color: #3f392c;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(232, 160, 124, .2), transparent 28%),
+    #ffeed6;
+}
+
+.route-loading > span {
+  width: 46px;
+  height: 46px;
+  border: 4px solid rgba(130, 113, 72, .22);
+  border-top-color: #827148;
+  border-radius: 50%;
+  animation: route-loading-spin .75s linear infinite;
+}
+
+.route-loading b { font-size: 18px; }
+.route-loading small { color: #675c4d; font-size: 14px; }
+
+@keyframes route-loading-spin { to { transform: rotate(360deg); } }

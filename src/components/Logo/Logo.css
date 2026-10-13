@@ -1,0 +1,9 @@
+/* SolveIt logo. Height drives the size; width follows the artwork's aspect ratio. */
+.brand { --brand-h: 38px; display: inline-flex; align-items: center; flex: 0 0 auto; height: var(--brand-h); line-height: 0; background: transparent; }
+.brand__img { display: block; height: 100%; width: auto; max-width: none; user-select: none; -webkit-user-drag: none; }
+.brand--mark { --brand-h: 44px; }
+
+@media (max-width: 680px) {
+  .brand { --brand-h: 34px; }
+  .brand--mark { --brand-h: 40px; }
+}
