@@ -7,7 +7,7 @@ import { getErrorMessage, getFieldErrors, getFirstFieldError } from '../../../..
 import useAuth from '../../../../hooks/useAuth';
 import { PATHS } from '../../../../routes/paths';
 import { getAdminLoginErrors } from '../../utils/adminAuthValidation';
-import DemoLoginPanel from '../../../demo/DemoLoginPanel';
+import DemoFill from '../../../demo/DemoFill';
 import { useLocale } from '../../../../context/LocaleContext';
 
 export default function AdminLogin() {
@@ -64,8 +64,6 @@ export default function AdminLogin() {
         <p>{tr('أدخل بيانات حسابك الإداري للوصول إلى مساحة الإدارة.', 'Use your admin credentials to access the management space.')}</p>
       </div>
 
-      <DemoLoginPanel role="admin" onFill={(a) => { setEmail(a.email); setPassword(a.password); clearServerErrors(); }} />
-
       {authError && (
         <div className="auth-alert" role="alert">
           <AuthIcon name="shield" size={16}/>
@@ -115,6 +113,7 @@ export default function AdminLogin() {
       <button className="auth-primary-btn auth-primary-btn" type="submit" disabled={isSubmitting || rateLimited} aria-busy={isSubmitting}>
         {isSubmitting ? <><span className="auth-spinner" aria-hidden="true" /> {tr('جارٍ التحقق...', 'Checking...')}</> : rateLimited ? tr('انتظر قليلًا قبل إعادة المحاولة', 'Please wait before retrying') : <>{tr('تسجيل الدخول', 'Sign in')} <AuthIcon name="arrow" size={18}/></>}
       </button>
+      <DemoFill role="admin" onFill={(a) => { setEmail(a.email); setPassword(a.password); clearServerErrors(); }} />
 
       <p className="auth-help">{tr('لا توجد إمكانية لإنشاء حساب إداري من هذه الصفحة. يتم منح صلاحيات الإدارة من خلال النظام المصرح به فقط.', 'Admin accounts are created by authorized platform administrators.')}</p>
     </form>

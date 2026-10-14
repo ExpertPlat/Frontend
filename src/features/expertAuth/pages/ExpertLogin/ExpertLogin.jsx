@@ -9,7 +9,7 @@ import useAuth from '../../../../hooks/useAuth';
 import { getExpertLoginErrors } from '../../utils/expertAuthValidation';
 import { PATHS } from '../../../../routes/paths';
 import ForgotPasswordModal from '../../../auth/components/ForgotPasswordModal/ForgotPasswordModal';
-import DemoLoginPanel from '../../../demo/DemoLoginPanel';
+import DemoFill from '../../../demo/DemoFill';
 import { useLocale } from '../../../../context/LocaleContext';
 
 export default function ExpertLogin() {
@@ -72,8 +72,6 @@ export default function ExpertLogin() {
         <p>{tr('سجّل دخولك لمتابعة ملفك وطلباتك المهنية.', 'Sign in to follow your expert profile and requests.')}</p>
       </div>
 
-      <DemoLoginPanel role="expert" onFill={(a) => { setEmail(a.email); setPassword(a.password); clearServerErrors(); }} />
-
       <AuthApiAlert message={generalError} />
 
       <div className="auth-form__fields">
@@ -89,6 +87,7 @@ export default function ExpertLogin() {
       <button className="auth-primary-btn auth-primary-btn" type="submit" disabled={isSubmitting} aria-busy={isSubmitting}>
         {isSubmitting ? <><span className="auth-button-spinner" aria-hidden="true" /> {tr('جارٍ تسجيل الدخول...', 'Signing in...')}</> : <>{tr('دخول مساحة الخبير', 'Expert sign in')} <AuthIcon name="arrow" size={18}/></>}
       </button>
+      <DemoFill role="expert" onFill={(a) => { setEmail(a.email); setPassword(a.password); clearServerErrors(); }} />
       <p className="auth-switch">{tr('ليس لديك دور خبير بعد؟', 'New to SolveIt?')} <Link to={PATHS.EXPERT_REGISTER}>{tr('انضم كخبير', 'Join as expert')}</Link></p>
       <p className="auth-secondary-switch">{tr('تريد الدخول كمستخدم عادي؟', 'Using a personal account?')} <Link to={PATHS.LOGIN}>{tr('تسجيل دخول المستخدم', 'User sign in')}</Link></p>
     </form>

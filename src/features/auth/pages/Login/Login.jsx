@@ -10,7 +10,7 @@ import { getLoginErrors } from '../../utils/authValidation';
 import { PATHS } from '../../../../routes/paths';
 import ForgotPasswordModal from '../../components/ForgotPasswordModal/ForgotPasswordModal';
 import { useLocale } from '../../../../context/LocaleContext';
-import DemoLoginPanel from '../../../demo/DemoLoginPanel';
+import DemoFill from '../../../demo/DemoFill';
 import { getBackendErrorCode, getUserLoginErrorMessage, USER_AUTH_CODES } from '../../utils/userAuthErrors';
 
 export default function Login() {
@@ -74,8 +74,6 @@ export default function Login() {
         <p>{tr('سجّل دخولك لمتابعة حالاتك واستشاراتك.', 'Sign in to follow your cases and consultations.')}</p>
       </div>
 
-      <DemoLoginPanel role="user" onFill={(a) => { setEmail(a.email); setPassword(a.password); clearServerErrors(); }} />
-
       <AuthApiAlert message={generalError} />
 
       <div className="auth-form__fields">
@@ -91,6 +89,7 @@ export default function Login() {
       <button className="auth-primary-btn" type="submit" disabled={isSubmitting} aria-busy={isSubmitting}>
         {isSubmitting ? <><span className="auth-button-spinner" aria-hidden="true" /> {tr('جارٍ تسجيل الدخول...', 'Signing in...')}</> : <>{tr('تسجيل الدخول', 'Sign in')} <AuthIcon name="arrow" size={18}/></>}
       </button>
+      <DemoFill role="user" onFill={(a) => { setEmail(a.email); setPassword(a.password); clearServerErrors(); }} />
       <p className="auth-switch">{tr('ليس لديك حساب؟', 'New here?')} <Link to={PATHS.REGISTER}>{tr('أنشئ حسابًا جديدًا', 'Create an account')}</Link></p>
     </form>
     {showForgot && <ForgotPasswordModal onClose={closeForgot} />}
