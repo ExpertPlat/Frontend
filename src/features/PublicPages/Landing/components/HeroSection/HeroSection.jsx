@@ -48,16 +48,6 @@ function HeroSection() {
               <span className="lp-hero__shade" />
             </div>
 
-            <div className="lp-gl lp-gl--case">
-              <div className="lp-gl__head"><Icon name="spark" size={14} />{tr('حالتك · خطوة بخطوة', 'YOUR CASE · STEP BY STEP')}</div>
-              <div className="lp-gl__step"><span className="lp-gl__dot"><Icon name="check" size={13} /></span>{tr('وصف الحالة', 'Describe the case')}</div>
-              <div className="lp-gl__step"><span className="lp-gl__dot"><Icon name="check" size={13} /></span>{tr('مطابقة الخبير', 'Match an expert')}</div>
-              <div className="lp-gl__step"><span className="lp-gl__dot lp-gl__dot--open" />{tr('عرض مكتوب وجلسة', 'Written offer & session')}</div>
-              <div className="lp-gl__bar"><i /></div>
-            </div>
-
-            <div className="lp-gl lp-gl--remote"><Icon name="video" size={18} />{tr('جلسة فيديو عن بُعد', 'Remote video session')}</div>
-
             <div className="lp-gl lp-gl--offer">
               <div className="lp-gl__head">{tr('عرض مكتوب من الخبير', 'WRITTEN OFFER FROM THE EXPERT')}</div>
               <div className="lp-gl__row">

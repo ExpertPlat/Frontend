@@ -102,13 +102,6 @@
 .lp-gl { position: absolute; z-index: 2; padding: 15px 17px; color: var(--st-pt); background: rgb(5 22 26 / .62); border: 1px solid rgb(221 235 241 / .22); border-radius: 20px; box-shadow: 0 24px 50px -20px rgb(0 0 0 / .6); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
 .lp-gl__head { display: flex; align-items: center; gap: 8px; color: var(--st-pm); font-size: 11.5px; font-weight: 700; letter-spacing: .05em; }
 .landing-page--ar .lp-gl__head { font-size: 12.5px; letter-spacing: 0; }
-.lp-gl--case { inset-block-start: 60px; inset-inline-start: -70px; display: grid; gap: 10px; width: 262px; }
-.lp-gl__step { display: flex; align-items: center; gap: 10px; font-size: 13px; }
-.lp-gl__dot { flex: none; width: 22px; height: 22px; display: grid; place-items: center; color: #05161A; background: var(--st-acc); border-radius: 50%; }
-.lp-gl__dot--open { background: transparent; border: 1.5px solid rgb(221 235 241 / .5); }
-.lp-gl__bar { height: 5px; overflow: hidden; background: rgb(221 235 241 / .18); border-radius: 5px; }
-.lp-gl__bar i { display: block; width: 68%; height: 100%; border-radius: 5px; background: linear-gradient(90deg, var(--st-ln), var(--st-acc)); }
-.lp-gl--remote { inset-block-start: 200px; inset-inline-end: -28px; display: flex; align-items: center; gap: 10px; padding: 11px 16px; font-size: 13px; font-weight: 600; }
 .lp-gl--offer { inset-block-end: 44px; inset-inline-end: -34px; display: grid; gap: 12px; width: 284px; }
 .lp-gl__row { display: flex; align-items: center; gap: 11px; }
 .lp-gl__row b { display: block; font-size: 14px; font-weight: 700; }
@@ -376,8 +369,7 @@
   .lp-hero__copy { justify-items: center; padding-bottom: 0; text-align: center; }
   .lp-hero__actions { justify-content: center; }
   .lp-hero__visual { width: min(100%, 520px); height: 480px; margin-inline: auto; }
-  .lp-gl--case { inset-inline-start: -14px; }
-  .lp-gl--offer, .lp-gl--remote { inset-inline-end: -14px; }
+  .lp-gl--offer { inset-inline-end: -14px; }
   .lp-stage__strip { position: relative; inset: auto; grid-template-columns: 1fr 1fr; margin: 0 clamp(16px, 3vw, 32px) 24px; }
   .lp-stage__strip li { min-height: 74px; }
   .lp-stage__strip li:nth-child(3) { border-inline-start: 0; }
@@ -410,10 +402,6 @@
   .lp-hero__visual { height: 440px; }
   .lp-hero__frame { border-radius: 24px; border-start-start-radius: 170px; }
   .lp-gl { padding: 11px 13px; border-radius: 16px; }
-  .lp-gl--case { inset-block-start: 14px; inset-inline-start: -6px; width: 176px; gap: 7px; }
-  .lp-gl--case .lp-gl__step { font-size: 12px; }
-  .lp-gl--case .lp-gl__head { font-size: 10.5px; }
-  .lp-gl--remote { display: none; }
   .lp-stage .lp-pill { font-size: 11.5px; letter-spacing: .03em; text-align: center; }
   .lp-gl--offer { inset-block-end: 14px; inset-inline-end: -6px; width: 232px; gap: 9px; }
   .lp-stage__strip { grid-template-columns: 1fr; margin: 0 12px 14px; }
