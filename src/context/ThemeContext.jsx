@@ -8,8 +8,7 @@ function initialTheme() {
     const saved = localStorage.getItem(THEME_STORAGE_KEY);
     if (saved === 'light' || saved === 'dark') return saved;
   } catch { /* Private browsing can block storage. */ }
-  try { return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
-  catch { return 'light'; }
+  return 'light';
 }
 
 /** One light/dark preference for the whole frontend: public pages, auth screens and every dashboard. */
