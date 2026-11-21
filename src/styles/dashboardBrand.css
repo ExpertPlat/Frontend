@@ -20,10 +20,10 @@
 .admin-role-editor__footer .is-primary,
 .admin-role-create-actions .is-primary,
 .admin-inline-action.is-primary {
-  color: var(--brand-on-dark);
-  border-color: var(--brand-earth);
-  background: var(--brand-earth);
-  box-shadow: 0 9px 24px color-mix(in srgb, var(--brand-earth) 18%, transparent);
+  color: var(--sv-on-cta);
+  border-color: var(--sv-cta-hover);
+  background: var(--sv-cta-fill);
+  box-shadow: var(--sv-cta-shadow);
 }
 
 .admin-page-button.is-primary:hover,
@@ -34,8 +34,8 @@
 .admin-role-editor__footer .is-primary:hover,
 .admin-role-create-actions .is-primary:hover,
 .admin-inline-action.is-primary:hover {
-  border-color: var(--brand-earth-deep);
-  background: var(--brand-earth-deep);
+  border-color: var(--sv-cta-hover);
+  background: var(--sv-cta-fill-hover);
 }
 
 .admin-page-button:not(.is-primary),
@@ -101,8 +101,8 @@
 }
 
 .admin-dashboard-page :is(input, textarea, select):not([type='checkbox']):not([type='radio']):focus {
-  border-color: var(--brand-earth);
-  box-shadow: 0 0 0 3px var(--brand-focus);
+  border-color: var(--sv-focus);
+  box-shadow: 0 0 0 3px var(--sv-focus-halo);
 }
 
 .admin-app-shell[data-theme='dark'] .brand-tag-input {
@@ -119,13 +119,13 @@
 .admin-kyc-reject .is-information {
   color: var(--brand-earth-deep);
   border-color: color-mix(in srgb, var(--brand-earth) 34%, transparent);
-  background: color-mix(in srgb, var(--brand-peach) 16%, var(--admin-surface, white));
+  background: color-mix(in srgb, var(--brand-peach) 16%, var(--admin-surface, var(--sv-surface)));
 }
 
 .admin-kyc-page-decision-actions > div:last-child > button:not(.is-reject):not(.is-approve):hover,
 .admin-kyc-reject .is-information:hover {
   border-color: var(--brand-earth);
-  background: color-mix(in srgb, var(--brand-peach) 25%, var(--admin-surface, white));
+  background: color-mix(in srgb, var(--brand-peach) 25%, var(--admin-surface, var(--sv-surface)));
 }
 
 .admin-kyc-page-decision-actions .is-approve,
@@ -137,8 +137,8 @@
 
 .admin-kyc-page-decision-actions .is-approve:hover,
 .admin-kyc-approval-scope__actions .is-approve:hover {
-  border-color: color-mix(in srgb, var(--brand-success-deep) 84%, #1f2517);
-  background: color-mix(in srgb, var(--brand-success-deep) 84%, #1f2517);
+  border-color: color-mix(in srgb, var(--brand-success-deep) 84%, var(--sv-espresso));
+  background: color-mix(in srgb, var(--brand-success-deep) 84%, var(--sv-espresso));
 }
 
 .admin-kyc-reject--page {
@@ -152,7 +152,7 @@
 
 .admin-kyc-reject--page.is-information-request {
   border-color: color-mix(in srgb, var(--brand-olive) 42%, transparent);
-  background: color-mix(in srgb, var(--brand-olive) 7%, var(--admin-surface, white));
+  background: color-mix(in srgb, var(--brand-olive) 7%, var(--admin-surface, var(--sv-surface)));
 }
 
 .admin-kyc-decision-editor__header {
@@ -169,7 +169,7 @@
   display: grid;
   place-items: center;
   flex: 0 0 auto;
-  border-radius: 11px;
+  border-radius: 8px;
   color: var(--brand-earth-deep);
   background: var(--brand-peach-soft);
 }
@@ -208,23 +208,21 @@
   justify-items: center;
   gap: 10px;
   padding: 32px;
-  color: #3f392c;
+  color: var(--sv-ink);
   text-align: center;
-  background:
-    radial-gradient(circle at 50% 38%, rgba(232, 160, 124, .2), transparent 28%),
-    #ffeed6;
+  background: var(--sv-bg);
 }
 
 .route-loading > span {
   width: 46px;
   height: 46px;
-  border: 4px solid rgba(130, 113, 72, .22);
-  border-top-color: #827148;
+  border: 3px solid var(--sv-line);
+  border-top-color: var(--sv-primary);
   border-radius: 50%;
   animation: route-loading-spin .75s linear infinite;
 }
 
-.route-loading b { font-size: 18px; }
-.route-loading small { color: #675c4d; font-size: 14px; }
+.route-loading b { font-family: var(--font-display); font-size: 20px; font-weight: 600; }
+.route-loading small { color: var(--sv-muted); font-size: 14px; }
 
 @keyframes route-loading-spin { to { transform: rotate(360deg); } }

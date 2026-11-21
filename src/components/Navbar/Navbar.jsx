@@ -6,6 +6,7 @@ import './Navbar.css';
 import { PATHS } from '../../routes/paths';
 import useAuth from '../../hooks/useAuth';
 import LocaleSwitch from '../LocaleSwitch/LocaleSwitch';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import { useLocale } from '../../context/LocaleContext';
 
 const SESSION_DESTINATIONS = Object.freeze({
@@ -93,6 +94,7 @@ export default function Navbar() {
         <Logo className="lp-nav__logo" />
         <nav className="lp-nav__links" aria-label={tr('التنقل الرئيسي', 'Main navigation')}>{links}</nav>
         <div className="lp-nav__actions">
+          <ThemeToggle />
           <LocaleSwitch />
           <div className="lp-nav__cta">{actions}</div>
           <button ref={menuButtonRef} type="button" className="lp-nav__toggle" aria-expanded={open} aria-controls="lp-nav-drawer" aria-label={open ? tr('إغلاق القائمة', 'Close menu') : tr('فتح القائمة', 'Open menu')} onClick={() => setOpen((value) => !value)}>

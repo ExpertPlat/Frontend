@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTheme } from '../../../context/ThemeContext';
 import { Outlet, useLocation } from 'react-router-dom';
 import { UserI18nProvider, getUserDirection } from '../../userDashboard/i18n/UserI18nContext';
 import { AdminSessionProvider } from '../session/AdminSessionContext';
@@ -19,7 +20,8 @@ const writePreference = (key, value) => {
 export default function AdminShell() {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [theme, setTheme] = useState(() => readPreference('ecp-admin-theme', 'light'));
+  // Light/dark is shared with the public site and the other workspaces.
+  const { theme, setTheme } = useTheme();
   const [language, setLanguage] = useState(() => (readPreference('ecp-admin-language', 'ar') === 'en' ? 'en' : 'ar'));
   const direction = getUserDirection(language);
   const { pathname } = useLocation();

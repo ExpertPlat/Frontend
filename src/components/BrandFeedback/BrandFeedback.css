@@ -21,7 +21,7 @@
   border-inline-start: 4px solid var(--brand-earth);
   border-radius: 17px;
   color: var(--brand-ink);
-  background: color-mix(in srgb, var(--brand-cream) 94%, white);
+  background: var(--sv-surface);
   box-shadow: var(--brand-shadow-high);
   animation: brandNoticeIn .28s cubic-bezier(.2, .8, .2, 1) both;
   pointer-events: auto;
@@ -30,14 +30,14 @@
 .brand-notice.is-success { border-inline-start-color: var(--brand-success); }
 .brand-notice.is-warning { border-inline-start-color: var(--brand-warning); }
 .brand-notice.is-error { border-inline-start-color: var(--brand-danger); }
-.brand-notice__icon { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; color: var(--brand-earth-deep); background: var(--brand-earth-soft); }
+.brand-notice__icon { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 8px; color: var(--brand-earth-deep); background: var(--brand-earth-soft); }
 .brand-notice.is-success .brand-notice__icon { color: var(--brand-success-deep); background: var(--brand-success-soft); }
 .brand-notice.is-warning .brand-notice__icon { color: var(--brand-warning-deep); background: var(--brand-warning-soft); }
 .brand-notice.is-error .brand-notice__icon { color: var(--brand-danger-deep); background: var(--brand-danger-soft); }
 .brand-notice__copy { min-width: 0; }
 .brand-notice__copy b { display: block; margin-bottom: 2px; font-size: 13px; }
 .brand-notice__copy p { margin: 0; color: var(--brand-muted); font-size: 12.5px; line-height: 1.65; }
-.brand-notice > button { width: 34px; height: 34px; display: grid; place-items: center; border: 0; border-radius: 10px; color: var(--brand-earth); background: var(--brand-earth-soft); cursor: pointer; }
+.brand-notice > button { width: 34px; height: 34px; display: grid; place-items: center; border: 0; border-radius: 8px; color: var(--brand-earth); background: var(--brand-earth-soft); cursor: pointer; }
 .brand-notice > button:hover { color: var(--brand-earth-deep); background: var(--brand-peach-soft); }
 
 .brand-confirm-backdrop {
@@ -47,7 +47,7 @@
   display: grid;
   place-items: center;
   padding: 22px;
-  background: rgba(53, 45, 31, .48);
+  background: color-mix(in srgb, var(--sv-scrim) 50%, transparent);
   backdrop-filter: blur(7px);
   animation: brandBackdropIn .18s ease both;
 }
@@ -61,18 +61,18 @@
   border: 1px solid var(--brand-line-strong);
   border-radius: 23px;
   color: var(--brand-ink);
-  background: linear-gradient(145deg, var(--brand-surface), var(--brand-cream));
-  box-shadow: 0 30px 90px rgba(58, 45, 25, .24);
+  background: var(--sv-surface);
+  box-shadow: var(--sv-shadow-lg);
   animation: brandConfirmIn .24s cubic-bezier(.2, .8, .2, 1) both;
 }
 
-.brand-confirm__mark { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 16px; color: var(--brand-earth-deep); background: linear-gradient(145deg, var(--brand-peach-soft), var(--brand-olive-soft)); }
+.brand-confirm__mark { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 12px; color: var(--sv-accent-ink); background: var(--sv-accent-soft); box-shadow: 0 0 0 6px color-mix(in srgb, var(--sv-accent-soft) 45%, transparent); }
 .brand-confirm.is-danger .brand-confirm__mark { color: var(--brand-danger-deep); background: var(--brand-danger-soft); }
-.brand-confirm__copy small { color: var(--brand-earth); font-size: 10px; font-weight: 900; letter-spacing: .08em; }
+.brand-confirm__copy small { color: var(--brand-earth); font-size: 10px; font-weight: 700; letter-spacing: .08em; }
 .brand-confirm__copy h2 { margin: 5px 0 7px; font-size: 21px; line-height: 1.45; }
 .brand-confirm__copy p { margin: 0; color: var(--brand-muted); font-size: 13px; line-height: 1.8; }
 .brand-confirm__actions { grid-column: 1 / -1; display: flex; justify-content: flex-end; gap: 9px; padding-top: 4px; }
-.brand-confirm__actions button { min-width: 105px; min-height: 44px; padding-inline: 16px; border-radius: 12px; font-size: 12.5px; font-weight: 800; cursor: pointer; transition: transform .18s ease, background .18s ease, border-color .18s ease; }
+.brand-confirm__actions button { min-width: 105px; min-height: 44px; padding-inline: 16px; border-radius: 8px; font-size: 12.5px; font-weight: 600; cursor: pointer; transition: transform .18s ease, background .18s ease, border-color .18s ease; }
 .brand-confirm__actions button:hover { transform: translateY(-1px); }
 .brand-confirm__actions .is-cancel { border: 1px solid var(--brand-line-strong); color: var(--brand-earth-deep); background: var(--brand-surface); }
 .brand-confirm__actions .is-confirm { border: 1px solid var(--brand-earth); color: var(--brand-on-dark); background: var(--brand-earth); }

@@ -1,12 +1,12 @@
 import React from 'react';
-import wordmark from '../../../assets/images/solveit-wordmark.png';
-import wordmarkLight from '../../../assets/images/solveit-wordmark-light.png';
-import mark from '../../../assets/images/solveit-mark.png';
-import markLight from '../../../assets/images/solveit-mark-light.png';
+import wordmark from '../../../assets/images/solveit-logo-on-light.webp';
+import wordmarkLight from '../../../assets/images/solveit-logo-on-dark.webp';
+import mark from '../../../assets/images/solveit-mark-on-light.webp';
+import markLight from '../../../assets/images/solveit-mark-on-dark.webp';
 
 /**
  * Brand assets (transparent PNGs, already cropped to the artwork):
- * - `wordmark`: the full "Solve" lettering used in the expanded sidebar.
+ * - `wordmark`: the full logo used in the expanded sidebar.
  * - `mark`: the "S" symbol used when the sidebar is collapsed.
  * The light variants are used on the dark theme.
  */

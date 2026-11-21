@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import AdminIcon from '../../adminDashboard/components/AdminIcon/AdminIcon';
 import LocaleSwitch from '../../../components/LocaleSwitch/LocaleSwitch';
+import Logo from '../../../components/Logo/Logo';
+import ThemeToggle from '../../../components/ThemeToggle/ThemeToggle';
 import { useLocale } from '../../../context/LocaleContext';
 import { expertProfileService } from '../../../services/expert/expertProfileService';
 import { getErrorMessage } from '../../../api/errorHandler';
@@ -71,8 +73,8 @@ export default function PublicExpertProfile() {
   return (
     <main className="public-expert-page" dir={dir}>
       <header className="public-expert-nav">
-        <Link to={PATHS.HOME} className="public-expert-brand"><span>S</span><b>SolveIt</b></Link>
-        <div className="public-expert-nav__actions"><LocaleSwitch/><Link to={PATHS.LOGIN}>{tr('تسجيل الدخول', 'Sign in')}</Link></div>
+        <Logo variant="wordmark" className="public-expert-brand" label={tr('SolveIt - الرئيسية', 'SolveIt - Home')} />
+        <div className="public-expert-nav__actions"><ThemeToggle/><LocaleSwitch/><Link to={PATHS.LOGIN}>{tr('تسجيل الدخول', 'Sign in')}</Link></div>
       </header>
 
       <section className="public-expert-hero">

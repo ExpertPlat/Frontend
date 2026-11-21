@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from '../../../components/Navbar/Navbar';
 import Footer from '../../../components/Footer/Footer';
 import HeroSection from './components/HeroSection/HeroSection';
-import TrustBar from './components/TrustBar/TrustBar';
 import HowItWorksSection from './components/HowItWorksSection/HowItWorksSection';
 import DifferenceSection from './components/DifferenceSection/DifferenceSection';
 import ContextBentoSection from './components/ContextBentoSection/ContextBentoSection';
@@ -28,7 +27,6 @@ export default function Landing() {
       <Navbar />
       <main>
         <HeroSection />
-        <TrustBar />
         <HowItWorksSection />
         <DifferenceSection />
         <ContextBentoSection />

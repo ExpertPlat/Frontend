@@ -1,66 +1,335 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* SolveIt tokens · "Deep Teal & Cyan" concept (preview variant)
+   Ink #05161A · Deep #072E33 · Teal #0C7075 · Cyan #0F969C · Sky #6DA5C0 · Slate #294D61
+   + Gold #D0A04E (the added colour: CTA buttons and warm accents) */
+:root {
+  /* ── 1 · brand source colours ── */
+  --sv-brand-ink: #05161A;
+  --sv-brand-deep: #072E33;
+  --sv-brand-pine: #294D61;
+  --sv-brand-sage: #0F969C;
+  --sv-brand-mist: #6DA5C0;
+  --sv-brand-cream: #F4F9FB;
+  --sv-brand-gold: #D0A04E;
+  --sv-white: #FFFFFF;
+
+  /* legacy constant names → new palette */
+  --sv-ivory: var(--sv-brand-cream);
+  --sv-sand: #DDEBF1;
+  --sv-taupe: var(--sv-brand-gold);
+  --sv-olive: var(--sv-brand-pine);
+  --sv-cocoa: var(--sv-brand-deep);
+  --sv-espresso: var(--sv-brand-deep);
+
+  /* ── neutral ramp (mist → slate → ink) ── */
+  --sv-earth-25: #F7FBFC;
+  --sv-earth-50: #EDF5F8;
+  --sv-earth-100: #DDEBF1;
+  --sv-earth-200: #C9DDE7;
+  --sv-earth-300: #A8C3D2;
+  --sv-earth-400: #7FA3B6;
+  --sv-earth-500: #5F8498;
+  --sv-earth-600: #46697C;
+  --sv-earth-700: #294D61;  /* Slate */
+  --sv-earth-800: #1B3D4C;
+  --sv-earth-900: #072E33;
+  --sv-earth-950: #05161A;  /* Ink */
+
+  /* ── teal ramp (tint → cyan → teal → deep → ink) ── */
+  --sv-olive-50: #E6F4F5;
+  --sv-olive-100: #CDE8EA;
+  --sv-olive-200: #A2D3D6;
+  --sv-olive-300: #6DB7BC;
+  --sv-olive-400: #36A0A6;
+  --sv-olive-500: #0F969C;  /* Cyan */
+  --sv-olive-600: #0C7075;  /* Teal */
+  --sv-olive-700: #0A585D;
+  --sv-olive-800: #08454A;
+  --sv-olive-900: #072E33;  /* Deep */
+  --sv-olive-950: #05161A;  /* Ink */
+
+  /* ── gold ramp (the added colour) ── */
+  --sv-gold-50: #FBF3E1;
+  --sv-gold-100: #F7EBD1;
+  --sv-gold-200: #F0D9A8;
+  --sv-gold-300: #E8C27E;
+  --sv-gold-400: #E3B567;
+  --sv-gold-500: #D0A04E;
+  --sv-gold-600: #C08D3E;
+  --sv-gold-700: #8A5E14;
+  --sv-gold-800: #6A470F;
+
+  /* ── legacy aliases (old names, new values) ── */
+  --sv-burgundy: var(--sv-brand-deep);
+  --sv-coffee: var(--sv-brand-deep);
+  --sv-mocha: var(--sv-olive-800);
+  --sv-beige: var(--sv-sand);
+  --sv-almond: var(--sv-brand-cream);
+  --sv-sage: var(--sv-olive-700);
+  --sv-sage-light: var(--sv-olive-300);
+  --sv-sage-pale: var(--sv-olive-200);
+  --sv-ink-deep: var(--sv-earth-950);
+  --sv-on-dark-muted: #DDEBF1;
+  --sv-on-dark-faint: #A8C3D2;
+
+  /* ── 4 · gradients ── lamp-lit: Cyan light from one corner, a touch of Sky from the opposite one */
+  --sv-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 .97 0 0 0 0 1 0 0 0 .075 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --sv-grad-espresso:
+    radial-gradient(110% 80% at 88% -10%, rgb(15 150 156 / .36) 0%, rgb(15 150 156 / 0) 62%),
+    radial-gradient(60% 50% at 0% 112%, rgb(109 165 192 / .24) 0%, rgb(109 165 192 / 0) 70%),
+    linear-gradient(165deg, #0C5057 0%, #08393F 48%, #052227 100%);
+  --sv-grad-olive:
+    radial-gradient(100% 80% at 90% -10%, rgb(15 150 156 / .32) 0%, rgb(15 150 156 / 0) 60%),
+    radial-gradient(70% 60% at 0% 110%, rgb(5 22 26 / .55) 0%, rgb(5 22 26 / 0) 70%),
+    linear-gradient(165deg, #35617A 0%, #294D61 45%, #1B3A4B 100%);
+  --sv-grad-paper:
+    radial-gradient(80% 60% at 85% 0%, #F7FBFC 0%, rgb(247 251 252 / 0) 70%),
+    linear-gradient(180deg, #EDF5F8 0%, #E3F0F5 100%);
+  --sv-grad-sand: linear-gradient(160deg, #F1F8FA 0%, #E6F1F5 55%, #DDEBF1 100%);
+  --sv-grad-olive-bar: linear-gradient(90deg, #6DB7BC 0%, #0F969C 55%, #0A585D 100%);
+  --sv-grad-earth-bar: linear-gradient(90deg, #B7D3E3 0%, #6DA5C0 55%, #294D61 100%);
+  --sv-hl-beige: linear-gradient(135deg, #F7FBFC 0%, #F1F8FA 60%, #E6F1F5 100%);
+  --sv-hl-olive: linear-gradient(135deg, #F7FBFC 0%, #E6F4F5 100%);
+
+  /* ── type ── */
+  --font-body: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: var(--font-body);
+  --latin-font: var(--font-body);
+
+  /* ── shape, motion ── */
+  --sv-radius-xl: 28px;   /* hero / feature panels */
+  --sv-radius-lg: 18px;   /* cards */
+  --sv-radius: 12px;      /* inputs, tiles */
+  --sv-radius-sm: 8px;    /* buttons, small controls */
+  --sv-ease: cubic-bezier(.2, .7, .2, 1);
+  --sv-ease-out: cubic-bezier(.16, 1, .3, 1);
+  --page-scroll: 0px;
+}
+
+/* ── 2 · semantic roles · light ── */
+:root, [data-theme='light'] {
+  color-scheme: light;
+  --sv-bg: #EDF5F8;
+  --sv-bg-alt: #DDEBF1;
+  --sv-surface: #F7FBFC;
+  --sv-surface-2: #F1F8FA;
+  --sv-surface-3: #E6F1F5;
+  --sv-veil: #F7FBFC;
+  --sv-ink: #05161A;
+  --sv-text: #0B2A33;
+  --sv-muted: #3F5F6E;
+  --sv-faint: #446676;
+  --sv-line: rgb(41 77 97 / .22);
+  --sv-line-soft: rgb(41 77 97 / .12);
+  --sv-line-strong: rgb(41 77 97 / .45);
+  --sv-control-border: #5F8498;
+
+  --sv-primary: #0C7075;
+  --sv-primary-hover: #0A5A60;
+  --sv-on-primary: #F7FBFC;
+
+  /* the decisive colour: Cyan, with Ink text */
+  --sv-cta: #D0A04E;
+  --sv-cta-hover: #DDAE5E;
+  --sv-on-cta: #05161A;
+  --sv-cta-fill: linear-gradient(180deg, #E3B567 0%, #C08D3E 100%);
+  --sv-cta-fill-hover: linear-gradient(180deg, #EDC27A 0%, #D0A04E 100%);
+  --sv-cta-shadow: inset 0 1px 0 rgb(255 255 255 / .45), 0 0 0 1px rgb(138 94 20 / .38), 0 1px 2px rgb(5 22 26 / .3), 0 8px 16px -10px rgb(138 94 20 / .85);
+  --sv-cta-on-dark: #D0A04E;
+  --sv-cta-on-dark-hover: #DDAE5E;
+  --sv-on-cta-on-dark: #05161A;
+  --sv-secondary-border: rgb(7 46 51 / .55);
+
+  --sv-accent: #0C7075;
+  --sv-accent-ink: #0C7075;
+  --sv-accent-soft: #D9EEF0;
+  --sv-on-accent: #F7FBFC;
+  --sv-taupe-ink: #8A5E14;
+  --sv-taupe-soft: #F7EBD1;
+
+  --sv-success: #0A6A6F;
+  --sv-success-soft: #D9EEF0;
+  --sv-warning: #8C4A18;
+  --sv-warning-soft: #FBE9D6;
+  --sv-danger: #A3303F;
+  --sv-danger-soft: #F8DADD;
+
+  --sv-focus: #0C7075;
+  --sv-focus-halo: rgb(15 150 156 / .3);
+  --sv-nav-active: #DDEBF1;
+  --sv-scrim: #05161A;
+
+  --sv-inverse: #072E33;
+  --sv-inverse-2: #0A4046;
+  --sv-inverse-fill: linear-gradient(180deg, #0C5057 0%, #08393F 38%, #052227 100%);
+  --sv-on-inverse: #EAF4F7;
+  --sv-on-inverse-muted: #C6DDE4;
+  --sv-nav-tab: #F7FBFC;
+  --sv-on-nav-tab: #05161A;
+
+  --sv-shadow-color: #05161A;
+  --sv-shadow-sm: 0 1px 2px rgb(5 22 26 / .06);
+  --sv-shadow: 0 1px 2px rgb(5 22 26 / .05), 0 6px 16px -8px rgb(5 22 26 / .15);
+  --sv-shadow-lg: 0 2px 6px rgb(5 22 26 / .06), 0 24px 48px -16px rgb(5 22 26 / .32);
+}
+
+/* ── 2 · semantic roles · dark ("Deep Teal"): brand surfaces and the Cyan button are theme-invariant ── */
+[data-theme='dark'] {
+  color-scheme: dark;
+  --sv-bg: #05161A;
+  --sv-bg-alt: #071C21;
+  --sv-surface: #0A2227;
+  --sv-surface-2: #0E2D33;
+  --sv-surface-3: #133A42;
+  --sv-veil: #0A2227;
+  --sv-ink: #EAF4F7;
+  --sv-text: #CFE0E6;
+  --sv-muted: #9DB8C4;
+  --sv-faint: #8AA9B7;
+  --sv-line: rgb(109 165 192 / .26);
+  --sv-line-soft: rgb(109 165 192 / .14);
+  --sv-line-strong: rgb(109 165 192 / .5);
+  --sv-control-border: #5E8CA0;
+
+  --sv-primary: #DDEBF1;
+  --sv-primary-hover: #F7FBFC;
+  --sv-on-primary: #05161A;
+
+  --sv-cta-hover: #DDAE5E;
+  --sv-cta-fill-hover: linear-gradient(180deg, #EDC27A 0%, #D0A04E 100%);
+  --sv-cta-shadow: inset 0 1px 0 rgb(255 255 255 / .4), 0 0 0 1px rgb(208 160 78 / .5), 0 10px 22px -12px rgb(2 10 12 / .9);
+  --sv-secondary-border: rgb(221 235 241 / .4);
+
+  --sv-sage: #0F969C;
+  --sv-accent: #0F969C;
+  --sv-accent-ink: #6DA5C0;
+  --sv-accent-soft: rgb(15 150 156 / .2);
+  --sv-on-accent: #05161A;
+  --sv-taupe-ink: #E2B466;
+  --sv-taupe-soft: rgb(208 160 78 / .16);
+
+  --sv-success: #8FD3D6;
+  --sv-success-soft: rgb(15 150 156 / .28);
+  --sv-warning: #E8B86E;
+  --sv-warning-soft: rgb(232 184 110 / .14);
+  --sv-danger: #F0A0A0;
+  --sv-danger-soft: rgb(240 160 160 / .14);
+
+  --sv-focus: #6DA5C0;
+  --sv-focus-halo: rgb(109 165 192 / .3);
+  --sv-nav-active: #DDEBF1;
+  --sv-scrim: #020B0D;
+
+  --sv-grad-paper:
+    radial-gradient(80% 60% at 85% 0%, rgb(12 80 87 / .6) 0%, rgb(12 80 87 / 0) 70%),
+    linear-gradient(180deg, #071C21 0%, #05161A 100%);
+  --sv-grad-sand: linear-gradient(160deg, #133A42 0%, #0E2D33 55%, #0A2227 100%);
+  --sv-hl-beige: linear-gradient(135deg, #0E2D33 0%, #0B262B 60%, #0A2227 100%);
+  --sv-hl-olive: linear-gradient(135deg, #0F3036 0%, #0A2227 100%);
+  --sv-grad-olive-bar: linear-gradient(90deg, #0A585D 0%, #0F969C 55%, #A2D3D6 100%);
+  --sv-grad-earth-bar: linear-gradient(90deg, #294D61 0%, #6DA5C0 55%, #C9DDE7 100%);
+
+  --sv-shadow-color: #020B0D;
+  --sv-shadow-sm: 0 1px 2px rgb(2 10 12 / .55);
+  --sv-shadow: 0 1px 2px rgb(2 10 12 / .55), 0 8px 18px -10px rgb(2 10 12 / .8);
+  --sv-shadow-lg: 0 2px 6px rgb(2 10 12 / .55), 0 28px 56px -18px rgb(2 10 12 / .92);
+}
+
+/* Legacy names, kept so every existing selector picks up the new identity.
+   Declared on every themed element so theme-dependent aliases resolve per theme. */
+:root, [data-theme] {
+  --sv-grad-burgundy: var(--sv-grad-espresso);
+  --sv-grad-sage: var(--sv-grad-olive-bar);
+  --sv-grad-almond: var(--sv-grad-sand);
+  --sv-grad-coffee: var(--sv-grad-earth-bar);
+  --brand-peach: var(--sv-taupe);
+  --brand-earth: var(--sv-primary);
+  --brand-olive: var(--sv-accent);
+  --brand-cream: var(--sv-almond);
+  --brand-earth-deep: var(--sv-primary-hover);
+  --brand-peach-deep: var(--sv-taupe-ink);
+  --brand-surface: var(--sv-surface);
+  --brand-canvas: var(--sv-bg);
+  --brand-surface-soft: var(--sv-surface-2);
+  --brand-ink: var(--sv-ink);
+  --brand-muted: var(--sv-muted);
+  --brand-line: var(--sv-line);
+  --brand-line-strong: var(--sv-line-strong);
+  --brand-focus: var(--sv-focus);
+  --brand-peach-soft: var(--sv-taupe-soft);
+  --brand-earth-soft: color-mix(in srgb, var(--sv-primary) 8%, transparent);
+  --brand-olive-soft: var(--sv-accent-soft);
+  --brand-success: var(--sv-accent);
+  --brand-success-deep: var(--sv-success);
+  --brand-success-soft: var(--sv-success-soft);
+  --brand-warning: var(--sv-warning);
+  --brand-warning-deep: var(--sv-warning);
+  --brand-warning-soft: var(--sv-warning-soft);
+  --brand-danger: var(--sv-danger);
+  --brand-danger-deep: var(--sv-danger);
+  --brand-danger-soft: var(--sv-danger-soft);
+  --brand-on-dark: var(--sv-on-primary);
+  --brand-shadow: var(--sv-shadow);
+  --brand-shadow-high: var(--sv-shadow-lg);
+  --cream: var(--sv-bg);
+  --cream-2: var(--sv-surface);
+  --cream-3: var(--sv-surface-3);
+  --peach: var(--sv-taupe);
+  --peach-deep: var(--sv-taupe-ink);
+  --olive: var(--sv-accent);
+  --olive-soft: var(--sv-accent-soft);
+  --earth: var(--sv-primary);
+  --earth-dark: var(--sv-primary-hover);
+  --ink: var(--sv-ink);
+  --muted: var(--sv-muted);
+  --line: var(--sv-line);
+  --shadow: var(--sv-shadow);
+  --radius: var(--sv-radius-lg);
+}
 
 :root {
-  /* Core identity palette. UI shades below derive from it with neutral contrast for accessibility. */
-  --brand-peach: #E8A07C;
-  --brand-earth: #827148;
-  --brand-olive: #A5AF79;
-  --brand-cream: #FFEED6;
-  --brand-earth-deep: color-mix(in srgb, var(--brand-earth) 78%, #2f281d);
-  --brand-peach-deep: color-mix(in srgb, var(--brand-peach) 76%, var(--brand-earth));
-  --brand-surface: color-mix(in srgb, var(--brand-cream) 27%, white);
-  --brand-canvas: color-mix(in srgb, var(--brand-cream) 54%, white);
-  --brand-surface-soft: color-mix(in srgb, var(--brand-cream) 48%, white);
-  --brand-ink: color-mix(in srgb, var(--brand-earth) 54%, #211c14);
-  --brand-muted: color-mix(in srgb, var(--brand-earth) 68%, white);
-  --brand-line: color-mix(in srgb, var(--brand-earth) 14%, transparent);
-  --brand-line-strong: color-mix(in srgb, var(--brand-earth) 25%, transparent);
-  --brand-focus: color-mix(in srgb, var(--brand-peach) 38%, transparent);
-  --brand-peach-soft: color-mix(in srgb, var(--brand-peach) 18%, transparent);
-  --brand-earth-soft: color-mix(in srgb, var(--brand-earth) 12%, transparent);
-  --brand-olive-soft: color-mix(in srgb, var(--brand-olive) 24%, transparent);
-  --brand-success: color-mix(in srgb, var(--brand-olive) 68%, var(--brand-earth));
-  --brand-success-deep: color-mix(in srgb, var(--brand-olive) 52%, #384025);
-  --brand-success-soft: color-mix(in srgb, var(--brand-olive) 24%, transparent);
-  --brand-warning: color-mix(in srgb, var(--brand-peach) 70%, var(--brand-earth));
-  --brand-warning-deep: color-mix(in srgb, var(--brand-peach) 52%, #70412d);
-  --brand-warning-soft: color-mix(in srgb, var(--brand-peach) 22%, transparent);
-  --brand-danger: color-mix(in srgb, var(--brand-peach) 55%, #833d37);
-  --brand-danger-deep: color-mix(in srgb, var(--brand-peach) 30%, #71352f);
-  --brand-danger-soft: color-mix(in srgb, var(--brand-peach) 18%, transparent);
-  --brand-on-dark: #FFFDF8;
-  --brand-shadow: 0 18px 52px color-mix(in srgb, var(--brand-earth) 13%, transparent);
-  --brand-shadow-high: 0 24px 70px color-mix(in srgb, var(--brand-earth) 20%, transparent);
-  --cream: #F8F1E8;
-  --cream-2: #FFF8EF;
-  --cream-3: #F4E7D7;
-  --peach: var(--brand-peach);
-  --peach-deep: #D9825F;
-  --olive: var(--brand-olive);
-  --olive-soft: #DDE2C8;
-  --earth: var(--brand-earth);
-  --earth-dark: #55482F;
-  --ink: #4E4332;
-  --muted: #817563;
-  --line: rgba(103, 86, 56, .14);
-  --shadow: 0 24px 70px rgba(73, 53, 31, .10);
-  --radius: 28px;
-  --page-scroll: 0px;
-  --latin-font: 'Plus Jakarta Sans', 'Avenir Next', system-ui, sans-serif;
-  font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: var(--ink);
-  background: var(--cream);
+  font-family: var(--font-body);
+  color: var(--sv-text);
+  background: var(--sv-bg);
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 * { box-sizing: border-box; }
-html { background: var(--cream); }
-body { margin: 0; min-width: 320px; background: var(--cream); overflow-x: hidden; font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+html { background: var(--sv-bg); }
+body { margin: 0; min-width: 320px; color: var(--sv-text); background: var(--sv-bg); overflow-x: hidden; font-family: var(--font-body); transition: background-color .3s ease, color .3s ease; }
 a { color: inherit; text-decoration: none; }
-button, input, textarea, select, a { font: inherit; font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+button, input, textarea, select, a { font: inherit; font-family: var(--font-body); }
 button { color: inherit; }
 img { display: block; max-width: 100%; }
+::selection { color: var(--sv-on-cta); background: var(--sv-cta); }
 .container { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
 
-[data-reveal] { opacity: 0; transform: translateY(26px) scale(.985); filter: blur(3px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1), filter .8s ease; transition-delay: var(--delay, 0ms); }
-[data-reveal].is-visible { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+[data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .8s var(--sv-ease), transform .8s var(--sv-ease); transition-delay: var(--delay, 0ms); }
+[data-reveal].is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  body { transition: none; }
+}
+
+/* Theme switch shared by the public navbar and auth screens. */
+.theme-toggle { flex: none; width: 42px; height: 42px; display: inline-grid; place-items: center; padding: 0; color: var(--sv-text); background: transparent; border: 1px solid var(--sv-line); border-radius: 8px; cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.theme-toggle:hover { color: var(--sv-ink); background: var(--sv-surface-3); border-color: var(--sv-line-strong); }
+.theme-toggle:focus-visible { outline: 3px solid var(--sv-focus); outline-offset: 2px; }
+.theme-toggle svg { width: 19px; height: 19px; }
+
+/* ── Brand refinement preview layer: type rhythm per script ── */
+:root { letter-spacing: 0; }
+:where(h1, h2, h3) { letter-spacing: -0.015em; }
+:where([dir='rtl'], [dir='rtl'] *) :where(h1, h2, h3, h4) { letter-spacing: 0; }
+[dir='rtl'] { line-height: 1.8; }
+.landing-page--en .lp-hero__title em { font-style: normal; }
+
+/* ── Focal lens on dashboard welcome cards (user/expert .jr-hero, admin .ad-hello) ── */
+.jr-hero::before, .ad-hello::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: repeating-radial-gradient(circle at 6% 50%, transparent 0 31px, var(--ud-line) 31px 32px); -webkit-mask-image: radial-gradient(45% 140% at 6% 50%, #000 25%, transparent 100%); mask-image: radial-gradient(45% 140% at 6% 50%, #000 25%, transparent 100%); }
+[dir='ltr'] .jr-hero::before, [dir='ltr'] .ad-hello::before, .ud[dir='ltr'] .jr-hero::before, .ud[dir='ltr'] .ad-hello::before { background: repeating-radial-gradient(circle at 94% 50%, transparent 0 31px, var(--ud-line) 31px 32px); -webkit-mask-image: radial-gradient(45% 140% at 94% 50%, #000 25%, transparent 100%); mask-image: radial-gradient(45% 140% at 94% 50%, #000 25%, transparent 100%); }
+
+/* ── Global finish: native controls and scrollbars follow the identity ── */
+:root { accent-color: var(--sv-cta); scrollbar-color: var(--sv-line-strong) transparent; }
+[data-theme='dark'] { scrollbar-color: rgb(221 235 241 / .24) transparent; }

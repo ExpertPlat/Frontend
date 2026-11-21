@@ -7,7 +7,7 @@ export default function useDashboardDark() {
   useEffect(() => {
     const update = () => setDark(read());
     const mo = new MutationObserver(update);
-    mo.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['data-theme'], childList: true });
+    mo.observe(document.documentElement, { subtree: true, attributes: true, attributeFilter: ['data-theme'], childList: true });
     update();
     return () => mo.disconnect();
   }, []);
